@@ -12,3 +12,5 @@ layout: default
 def i_am_code():
 	return 1000
 {% endhighlight %}
+
+[test](url)

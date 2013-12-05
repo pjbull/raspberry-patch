@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Raspberry Bush | Background</title>
+    <title>Raspberry Bush | Software</title>
   </head>
 
   <body>
@@ -37,17 +37,36 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id='goals'>Goals</h2>
+        <h2 id='operating_system'>Operating System</h2>
 
-<p>Write words here that say things</p>
+<ul>
+<li>Raspian based on Debian (hard float ABI)</li>
+</ul>
 
-<h2 id='overview'>Overview</h2>
+<h2 id='openmpi'>OpenMPI</h2>
 
-<p>Screencast video</p>
+<p>-Use machinefile option with all the cluster nodes</p>
 
-<h2 id='insights'>Insights</h2>
+<h2 id='python'>Python</h2>
 
-<p>A couple of take-aways</p>
+<ul>
+<li>Version 2.7 (comes with Raspbian)</li>
+</ul>
+
+<h2 id='mpi4py'>mpi4py</h2>
+
+<ul>
+<li>install with apt-get</li>
+</ul>
+<div class='highlight'><pre><code class='bash'>sudo apt-get install python-mpi4py
+</code></pre></div>
+<h2 id='ssh'>SSH</h2>
+
+<ul>
+<li>Use the same keys</li>
+
+<li>Disable some authentication safeguards (this is ok since we are not on the internet)</li>
+</ul>
       </section>
     </div>
 

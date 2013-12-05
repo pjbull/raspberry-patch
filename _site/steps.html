@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Raspberry-bush : Software for the setup and administration of a cluster of raspberry pis." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Raspberry Bush | Step-by-step</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+                <header class="inner">
+          <!-- <a id="forkme_banner" href="https://github.com/pjbull/raspberry-bush">View on GitHub</a> -->
+
+          <h1 id="project_title">Raspberry Bush</h1>
+          <h2 id="project_tagline">building a cluster of raspberry pis</h2>
+          	<a class="button" href="/index.html">background</a>
+          	<a class="button" href="/software.html">software</a>
+          	<a class="button" href="/hardware.html">hardware</a>
+          	<a class="button" href="/steps.html">step-by-step</a>
+          	<a class="button" href="/perf.html">performance</a>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pjbull/raspberry-bush/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pjbull/raspberry-bush/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2 id='image_the_sd_cards'>Image the SD Cards</h2>
+
+<ul>
+<li>Create a master image (link to ours)</li>
+
+<li>Image all the sd cards using dd</li>
+</ul>
+<div class='highlight'><pre><code class='bash'><span class='c'># find sd card</span>
+diskutil list
+
+<span class='c'># copy master image locally note change disk1 -&gt; rdisk1</span>
+sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class='nv'>of</span><span class='o'>=</span>~/rpi_mpi.img <span class='nv'>bs</span><span class='o'>=</span>1m
+</code></pre></div>
+<ul>
+<li>Then, for every sd card (i.e., each node in the cluster)</li>
+</ul>
+<div class='highlight'><pre><code class='bash'><span class='c'># update image using script</span>
+python setup_node.py rpi_mpi.img 1
+
+<span class='c'># copy master image locally note change disk1 -&gt; rdisk1</span>
+sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class='nv'>of</span><span class='o'>=</span>~/rpi_mpi.img <span class='nv'>bs</span><span class='o'>=</span>1m
+</code></pre></div>
+<h2 id='create_the_hardware_connections'>Create the Hardware Connections</h2>
+
+<h3 id='wire_the_network'>Wire the Network</h3>
+
+<ul>
+<li>static IP created in setup</li>
+
+<li>10/100 Ethernet (so not the fastest)</li>
+
+<li>Put on simple network switch (no internet, no dhcp)</li>
+</ul>
+
+<h3 id='power_the_devices'>Power the Devices</h3>
+
+<ul>
+<li>We used USB power hubs</li>
+
+<li>According to docs, each pi needs around 500-1000 mA, 5V</li>
+</ul>
+
+<h2 id='select_a_headnode'>Select a headnode</h2>
+
+<ul>
+<li>Connect keyboard, mouse, display</li>
+
+<li>if you need gui (e.g., gtk for matplotlib output) run</li>
+</ul>
+<div class='highlight'><pre><code class='bash'>startx
+</code></pre></div>
+<h2 id='run_mpi'>Run MPI</h2>
+<div class='highlight'><pre><code class='bash'>mpiexec --machinfile ~/machinefile -n 4 python hellompi.py
+</code></pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Raspberry-bush maintained by <a href="https://github.com/pjbull">pjbull</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
