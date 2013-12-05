@@ -9,10 +9,10 @@ layout: default
 - different number of nodes
 
 ## Speedup
-![alt text](/images/moon.jpg "To the moon!")
+![alt text](/images/moon.jpg "{{ site.baseurl }}/images/To the moon!")
 
 ## Efficiency
-![alt text](/images/eff.jpg "Efficiency!")
+![alt text](/images/eff.jpg "{{ site.baseurl }}/images/Efficiency!")
 
 ## Relative Performance
 - Comparison to Laptop
