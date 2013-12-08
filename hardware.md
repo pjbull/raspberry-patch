@@ -4,6 +4,7 @@ layout: default
 ---
 
 ## Electronics
+- Hi Ben
 - Raspberry Pi
 - DLink Switch
 - SD Cards (class 10, etc.)
