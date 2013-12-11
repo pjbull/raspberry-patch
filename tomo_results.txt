@@ -1,0 +1,5 @@
+16 nodes: Parallel Time Scatter/Reduce= 69.7933738232
+8 nodes: Parallel Time Scatter/Reduce= 113.891387939
+4 nodes: Parallel Time Scatter/Reduce= 204.380868912
+2 nodes: Parallel Time Scatter/Reduce= 364.687576056
+1 node: Parallel Time Scatter/Reduce= 767.194555044
