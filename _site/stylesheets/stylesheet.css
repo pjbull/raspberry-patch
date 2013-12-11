@@ -51,6 +51,7 @@ Controls
 .button, .minibutton {
     position: relative;
     display: inline-block;
+    width: 95px;
     padding: 7px 12px;
     font-size: 13px;
     font-weight: bold;
@@ -64,6 +65,7 @@ Controls
     border: 1px solid rgb(221, 221, 221);
     vertical-align: middle;
     cursor: pointer;
+    text-align: center;
     -moz-user-select: none;
 }
 

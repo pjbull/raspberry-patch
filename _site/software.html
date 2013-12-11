@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Raspberry-bush : Software for the setup and administration of a cluster of raspberry pis." />
+    <meta name="description" content="Raspberry-patch : Software for the setup and administration of a cluster of raspberry pis." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Raspberry Bush | Software</title>
+    <title>Raspberry Patch | Software</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
                 <header class="inner">
           <!-- <a id="forkme_banner" href="https://github.com/pjbull/raspberry-bush">View on GitHub</a> -->
 
-          <h1 id="project_title">Raspberry Bush</h1>
+          <h1 id="project_title">Raspberry Patch</h1>
           <h2 id="project_tagline">building a cluster of raspberry pis</h2>
           <img id="forkme_banner" src="/images/g.png"/>
           	<a class="button" href="/index.html">background</a>
@@ -40,41 +40,41 @@
       <section id="main_content" class="inner">
         <h2 id='operating_system'>Operating System</h2>
 
-<ul>
-<li>Raspian based on Debian (hard float ABI)</li>
-</ul>
+<p>Because of its ease of install and driver support for the Raspberry Pis, we opted for the <a href='http://www.raspberrypi.org/downloads'>Raspbian linux distribution</a> as our operating system. Raspbian is built on Debian and comes pre-packaged with some of the software we needed to create the cluster. Note: there are hardware float ABI and software float ABI versions of Raspbian. The hardware float ABI version utilizes the floating point registers rather than using integer registers and converting to and from floats using software. This was an important optimization for when building a cluster for scientific computing.</p>
 
 <h2 id='openmpi'>OpenMPI</h2>
 
-<p>-Use machinefile option with all the cluster nodes</p>
+<p><a href='http://www.open-mpi.org/'>Open MPI</a> is the de facto open source MPI-2 implementation. With precompiled binaries for ARM processors in the Raspbian package management system, it&#8217;s an obvious choice for parallel algorithms. We built our solution on version 1.4.5. As we learned, if you plan on using a headnode that is not a Pi, you&#8217;ll have to make sure that your Open MPI version matches.</p>
 
 <h2 id='python'>Python</h2>
 
-<ul>
-<li>Version 2.7 (comes with Raspbian)</li>
-</ul>
+<p>Raspbian comes with <a href='http://www.python.org/'>Python 2.7</a> installed already, so there&#8217;s no setup to do here.</p>
 
 <h2 id='mpi4py'>mpi4py</h2>
 
-<ul>
-<li>install with apt-get</li>
-</ul>
+<p><a href='http://mpi4py.scipy.org/'>mpi4py</a> is a Python package that lets Python applications utlizie the MPI standard for message passing. It&#8217;s easily installed on Raspbian through apt-get. If you haven&#8217;t installed openmpi yet, the below command will handle that dependency for you.</p>
 <div class='highlight'><pre><code class='bash'>sudo apt-get install python-mpi4py
 </code></pre></div>
 <h2 id='ssh'>SSH</h2>
+
+<p>On our cluster, MPI is configured to use SSH as its protocol to pass messages between nodes.</p>
 
 <ul>
 <li>Use the same keys</li>
 
 <li>Disable some authentication safeguards (this is ok since we are not on the internet)</li>
 </ul>
+
+<h2 id='xhpl'>XHPL</h2>
+
+<p>Linpack</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Raspberry-bush maintained by <a href="https://github.com/pjbull">pjbull</a></p>
+        <p class="copyright">Raspberry-patch maintained by <a href="https://github.com/pjbull">pjbull</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
