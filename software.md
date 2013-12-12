@@ -29,9 +29,20 @@ In order to clock the performance of our cluster in such a way that it can be co
 To install linpack we do the following:
 {% highlight bash %}
 sudo apt-get install openmpi-dev libatlas-base-dev gfortran
+
 tar xf hpl-2.1.tar.gz
 cd hpl-2.1/setup
 sh make_generic
 cd ..
 cp setup/Make.UNKNOWN Make.rpi
 {% endhighlight %}
+
+Then we made the following changes to Make.rpi:
+
+```
+ARCH         = rpi
+TOPdir       = $(HOME)/hpl-2.1
+MPlib        = -lmpi
+LAdir        = /usr/lib/atlas-base/
+LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
+```
