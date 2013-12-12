@@ -24,4 +24,14 @@ On our cluster, MPI is configured to use SSH as its protocol to pass messages be
 - Disable some authentication safeguards (this is ok since we are not on the internet)
 
 ## XHPL
-In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/hpl-2.1.tar.gz).
+In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/).
+
+To install linpack we do the following:
+{% highlight bash %}
+sudo apt-get install openmpi-dev libatlas-base-dev gfortran
+tar xf hpl-2.1.tar.gz
+cd hpl-2.1/setup
+sh make_generic
+cd ..
+cp setup/Make.UNKNOWN Make.rpi
+{% endhighlight %}
