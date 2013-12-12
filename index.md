@@ -13,4 +13,4 @@ However, the ability to build a cluster for less than the price of many desktop 
 Our secondary goal is to gain experience managing a cluster in order to better understand how to create and maintain a parallel computing environment. 
 Between the hardware setup, the software installation and configuration, and the cluster profiling, we dug deep into the intricacies of parallel computing.
 
-Check out our GitHub repo: (https://github.com/pjbull/raspberry-patch).
+Check out our GitHub repo: [github.com/pjbull/raspberry-patch](https://github.com/pjbull/raspberry-patch).
