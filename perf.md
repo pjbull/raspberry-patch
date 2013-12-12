@@ -8,6 +8,11 @@ layout: default
 - serial version (on RPi)
 - different number of nodes
 
+## Optimizations
+We performed several optimizations in order to improve the performance of our cluster.
+1. blah blah blah
+2. blah blah blah blah blah
+
 ## Speedup
 ![alt text](/images/moon.jpg "{{ site.baseurl }}/images/To the moon!")
 
