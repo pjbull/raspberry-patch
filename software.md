@@ -24,4 +24,4 @@ On our cluster, MPI is configured to use SSH as its protocol to pass messages be
 - Disable some authentication safeguards (this is ok since we are not on the internet)
 
 ## XHPL
-Linpack
+In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/hpl-2.1.tar.gz).
