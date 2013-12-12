@@ -24,7 +24,7 @@ On our cluster, MPI is configured to use SSH as its protocol to pass messages be
 - Disable some authentication safeguards (this is ok since we are not on the internet)
 
 ## XHPL
-In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/) by following the instructions at the bottom of [this](http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458) page.
+In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we download and install [linpack](http://www.netlib.org/benchmark/hpl/) by following the instructions at the bottom of [this page](http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458).
 
 In a nutshell, we do the following:
 {% highlight bash %}
@@ -37,7 +37,7 @@ cd ..
 cp setup/Make.UNKNOWN Make.rpi
 {% endhighlight %}
 
-Then we make the following changes to Make.rpi:
+Next, we make the following changes to Make.rpi:
 
 {% highlight  html %}
 ARCH         = rpi
@@ -55,7 +55,7 @@ make arch=rpi
 Before running, it is important to adjust the parameters in /bin/rpi/HPL.dat.
 Here are the values we settled on: [HPL.dat](https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat).
 
-Finally, we run the following:
+Finally, we test our supercomputer:
 {% highlight  bash %}
 mpiexec -machinefile machinefile -n 16 xhpl
 {% endhighlight %}
