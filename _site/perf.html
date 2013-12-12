@@ -38,17 +38,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id="test_setup">Test Setup</h2>
-
-<ul>
-<li>mpi4py</li>
-
-<li>serial version (on RPi)</li>
-
-<li>different number of nodes</li>
-</ul>
-
-<h2 id="optimizations">Optimizations</h2>
+        <h2 id="optimizations">Optimizations</h2>
 
 <p>We performed several optimizations in order to improve the performance of our cluster.</p>
 
@@ -116,13 +106,15 @@
 </tbody></table>
 <p>Here’s a comparison of the inverse bandwidth of our Raspberry Pi cluster with the CS 205 cluster and the EC2 cluster: <img src="/images/invbw.png" alt="alt text" title="Inverse Bandiwdth" /></p>
 
-<h2 id="goals_and_takeaways">Goals and take-aways</h2>
+<h2 id="a_few_other_measures">A Few Other Measures</h2>
 
-<ul>
-<li>Built for prototyping parallel algorithms</li>
+<p>In terms of GFLOPs/Cu.Ft. The Raspberry patch loses out to a server rack fitted with Intel CPUs: <img src="/images/pervolume.png" alt="alt text" title="Volume" /></p>
 
-<li>Good learning experience for linux-fu, cluster management, understanding hardware.</li>
-</ul>
+<p>If we look at our power consumption, we still can’t beat out a core-i7 cluster in terms of GFLOPs/Watt: <img src="/images/perwatts.png" alt="alt text" title="Power" /></p>
+
+<p>However, on the next graph, lower is better. This is the cost to replace a node if one of the cores fails: <img src="/images/nodecost.png" alt="alt text" title="Inverse Bandiwdth" /></p>
+
+<p>Finally, a victory!</p>
       </section>
     </div>
 

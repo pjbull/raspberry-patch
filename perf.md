@@ -3,11 +3,6 @@ title: Performance
 layout: default
 ---
 
-## Test Setup
-- mpi4py
-- serial version (on RPi)
-- different number of nodes
-
 ## Optimizations
 We performed several optimizations in order to improve the performance of our cluster.
 1. We decrease the video RAM allocation from 256 Mb (out of 512 Mb total) to 16 Mb
@@ -77,7 +72,14 @@ We compute inverse bandwidth in megabytes per second. Not too shabby.
 Here's a comparison of the inverse bandwidth of our Raspberry Pi cluster with the CS 205 cluster and the EC2 cluster:
 ![alt text]({{ site.baseurl }}/images/invbw.png "Inverse Bandiwdth")
 
+## A Few Other Measures
+In terms of GFLOPs/Cu.Ft. The Raspberry patch loses out to a server rack fitted with Intel CPUs:
+![alt text]({{ site.baseurl }}/images/pervolume.png "Volume")
 
-## Goals and take-aways
-- Built for prototyping parallel algorithms
-- Good learning experience for linux-fu, cluster management, understanding hardware. 
+If we look at our power consumption, we still can't beat out a core-i7 cluster in terms of GFLOPs/Watt:
+![alt text]({{ site.baseurl }}/images/perwatts.png "Power")
+
+However, on the next graph, lower is better. This is the cost to replace a node if one of the cores fails:
+![alt text]({{ site.baseurl }}/images/nodecost.png "Inverse Bandiwdth")
+
+Finally, a victory!
