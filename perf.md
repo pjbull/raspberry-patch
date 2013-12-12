@@ -14,10 +14,10 @@ We performed several optimizations in order to improve the performance of our cl
 2. blah blah blah blah blah
 
 ## Speedup
-![alt text](/images/moon.jpg "{{ site.baseurl }}/images/To the moon!")
+![alt text]({{ site.baseurl }}/images/moon.jpg "To the moon!")
 
 ## Efficiency
-![alt text](/images/eff.jpg "{{ site.baseurl }}/images/Efficiency!")
+![alt text]({{ site.baseurl }}/images/eff.jpg "Efficiency!")
 
 ## Relative Performance
 - Comparison to Laptop
