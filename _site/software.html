@@ -38,24 +38,24 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id="operating_system">Operating System</h2>
+        <h2 id='operating_system'>Operating System</h2>
 
-<p>Because of its ease of install and driver support for the Raspberry Pis, we opted for the <a href="http://www.raspberrypi.org/downloads">Raspbian linux distribution</a> as our operating system. Raspbian is built on Debian and comes pre-packaged with some of the software we needed to create the cluster. Note: there are hardware float ABI and software float ABI versions of Raspbian. The hardware float ABI version utilizes the floating point registers rather than using integer registers and converting to and from floats using software. This was an important optimization for when building a cluster for scientific computing.</p>
+<p>Because of its ease of install and driver support for the Raspberry Pis, we opted for the <a href='http://www.raspberrypi.org/downloads'>Raspbian linux distribution</a> as our operating system. Raspbian is built on Debian and comes pre-packaged with some of the software we needed to create the cluster. Note: there are hardware float ABI and software float ABI versions of Raspbian. The hardware float ABI version utilizes the floating point registers rather than using integer registers and converting to and from floats using software. This was an important optimization for when building a cluster for scientific computing.</p>
 
-<h2 id="openmpi">OpenMPI</h2>
+<h2 id='openmpi'>OpenMPI</h2>
 
-<p><a href="http://www.open-mpi.org/">Open MPI</a> is the de facto open source MPI-2 implementation. With precompiled binaries for ARM processors in the Raspbian package management system, it’s an obvious choice for parallel algorithms. We built our solution on version 1.4.5. As we learned, if you plan on using a headnode that is not a Pi, you’ll have to make sure that your Open MPI version matches.</p>
+<p><a href='http://www.open-mpi.org/'>Open MPI</a> is the de facto open source MPI-2 implementation. With precompiled binaries for ARM processors in the Raspbian package management system, it&#8217;s an obvious choice for parallel algorithms. We built our solution on version 1.4.5. As we learned, if you plan on using a headnode that is not a Pi, you&#8217;ll have to make sure that your Open MPI version matches.</p>
 
-<h2 id="python">Python</h2>
+<h2 id='python'>Python</h2>
 
-<p>Raspbian comes with <a href="http://www.python.org/">Python 2.7</a> installed already, so there’s no setup to do here.</p>
+<p>Raspbian comes with <a href='http://www.python.org/'>Python 2.7</a> installed already, so there&#8217;s no setup to do here.</p>
 
-<h2 id="mpi4py">mpi4py</h2>
+<h2 id='mpi4py'>mpi4py</h2>
 
-<p><a href="http://mpi4py.scipy.org/">mpi4py</a> is a Python package that lets Python applications utlizie the MPI standard for message passing. It’s easily installed on Raspbian through apt-get. If you haven’t installed openmpi yet, the below command will handle that dependency for you.</p>
+<p><a href='http://mpi4py.scipy.org/'>mpi4py</a> is a Python package that lets Python applications utlizie the MPI standard for message passing. It&#8217;s easily installed on Raspbian through apt-get. If you haven&#8217;t installed openmpi yet, the below command will handle that dependency for you.</p>
 <div class='highlight'><pre><code class='bash'>sudo apt-get install python-mpi4py
 </code></pre></div>
-<h2 id="ssh">SSH</h2>
+<h2 id='ssh'>SSH</h2>
 
 <p>On our cluster, MPI is configured to use SSH as its protocol to pass messages between nodes.</p>
 
@@ -66,12 +66,12 @@
 
 <li>Assign each node a static IP address</li>
 
-<li>Add all IP’s to a machinefile (we actually call our file <code>machinefile</code>)</li>
+<li>Add all IP&#8217;s to a machinefile (we actually call our file <code>machinefile</code>)</li>
 </ul>
 
-<h2 id="xhpl">XHPL</h2>
+<h2 id='xhpl'>XHPL</h2>
 
-<p>In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we download and install <a href="http://www.netlib.org/benchmark/hpl/">linpack</a> by following the instructions at the bottom of <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458">this page</a>.</p>
+<p>In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we download and install <a href='http://www.netlib.org/benchmark/hpl/'>linpack</a> by following the instructions at the bottom of <a href='http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&amp;p=301458'>this page</a>.</p>
 
 <p>In a nutshell, we do the following:</p>
 <div class='highlight'><pre><code class='bash'>sudo apt-get install openmpi-dev libatlas-base-dev gfortran
@@ -92,7 +92,7 @@ LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
 <p>Then we compile linpack:</p>
 <div class='highlight'><pre><code class='bash'>make <span class='nv'>arch</span><span class='o'>=</span>rpi
 </code></pre></div>
-<p>Before running, it is important to adjust the parameters in hpl-2.1/bin/rpi/HPL.dat. Here are the values we settled on: <a href="https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat">HPL.dat</a>.</p>
+<p>Before running, it is important to adjust the parameters in hpl-2.1/bin/rpi/HPL.dat. Here are the values we settled on: <a href='https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat'>HPL.dat</a>.</p>
 
 <p>Finally, we test our supercomputer:</p>
 <div class='highlight'><pre><code class='bash'>mpiexec -machinefile machinefile -n 16 xhpl
@@ -108,7 +108,23 @@ LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
       </footer>
     </div>
 
-    
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=9473302; 
+var sc_invisible=1; 
+var sc_security="136d566d"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/9473302/0/136d566d/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->    
 
   </body>
 </html>

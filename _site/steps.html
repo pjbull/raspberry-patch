@@ -38,10 +38,10 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id="image_the_sd_cards">Image the SD cards</h2>
+        <h2 id='image_the_sd_cards'>Image the SD cards</h2>
 
 <ul>
-<li>Donwload the <a href="http://www.raspberrypi.org/downloads">Raspbian OS</a></li>
+<li>Donwload the <a href='http://www.raspberrypi.org/downloads'>Raspbian OS</a></li>
 
 <li>Insert an SD card into your card reader.</li>
 
@@ -60,7 +60,7 @@ sudo dd <span class='nv'>of</span><span class='o'>=</span>/dev/rdisk1 <span clas
 <div class='highlight'><pre><code class='bash'>startx
 </code></pre></div>
 <ul>
-<li>On the master node, install the necessary <a href="/software.html">software</a>. Here is our final <a href="http://people.seas.harvard.edu/~bull/rpi_mpi_8.img.zip">image</a>.</li>
+<li>On the master node, install the necessary <a href='/software.html'>software</a>. Here is our final <a href='http://people.seas.harvard.edu/~bull/rpi_mpi_8.img.zip'>image</a>.</li>
 
 <li>Next, you want to copy this image to the other SD cards</li>
 </ul>
@@ -76,9 +76,9 @@ python setup_node.py rpi_mpi.img 1 <span class='c'>#Here, 1 is an ID for the nod
 <span class='c'># copy master image locally note change disk1 -&gt; rdisk1</span>
 sudo dd <span class='nv'>of</span><span class='o'>=</span>/dev/rdisk1 <span class='k'>if</span><span class='o'>=</span>~/rpi_mpi.img <span class='nv'>bs</span><span class='o'>=</span>1m
 </code></pre></div>
-<h2 id="create_the_hardware_connections">Create the Hardware Connections</h2>
+<h2 id='create_the_hardware_connections'>Create the Hardware Connections</h2>
 
-<h3 id="wire_the_network">Wire the Network</h3>
+<h3 id='wire_the_network'>Wire the Network</h3>
 
 <ul>
 <li>static IP created in setup</li>
@@ -88,7 +88,7 @@ sudo dd <span class='nv'>of</span><span class='o'>=</span>/dev/rdisk1 <span clas
 <li>Put on simple network switch (no internet, no dhcp)</li>
 </ul>
 
-<h3 id="power_the_devices">Power the Devices</h3>
+<h3 id='power_the_devices'>Power the Devices</h3>
 
 <ul>
 <li>We used USB power hubs</li>
@@ -96,7 +96,7 @@ sudo dd <span class='nv'>of</span><span class='o'>=</span>/dev/rdisk1 <span clas
 <li>According to docs, each pi needs around 500-1000 mA, 5V</li>
 </ul>
 
-<h2 id="run_mpi">Run MPI</h2>
+<h2 id='run_mpi'>Run MPI</h2>
 <div class='highlight'><pre><code class='bash'>mpiexec --machinfile ~/machinefile -n 4 python hellompi.py
 </code></pre></div>
       </section>
@@ -110,7 +110,23 @@ sudo dd <span class='nv'>of</span><span class='o'>=</span>/dev/rdisk1 <span clas
       </footer>
     </div>
 
-    
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=9473302; 
+var sc_invisible=1; 
+var sc_security="136d566d"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/9473302/0/136d566d/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->    
 
   </body>
 </html>
