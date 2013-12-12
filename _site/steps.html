@@ -38,7 +38,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id="image_the_sd_cards">Image the SD Cards</h2>
+        <h2 id='image_the_sd_cards'>Image the SD Cards</h2>
 
 <ul>
 <li>Create a master image (link to ours)</li>
@@ -60,9 +60,9 @@ python setup_node.py rpi_mpi.img 1
 <span class='c'># copy master image locally note change disk1 -&gt; rdisk1</span>
 sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class='nv'>of</span><span class='o'>=</span>~/rpi_mpi.img <span class='nv'>bs</span><span class='o'>=</span>1m
 </code></pre></div>
-<h2 id="create_the_hardware_connections">Create the Hardware Connections</h2>
+<h2 id='create_the_hardware_connections'>Create the Hardware Connections</h2>
 
-<h3 id="wire_the_network">Wire the Network</h3>
+<h3 id='wire_the_network'>Wire the Network</h3>
 
 <ul>
 <li>static IP created in setup</li>
@@ -72,7 +72,7 @@ sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class
 <li>Put on simple network switch (no internet, no dhcp)</li>
 </ul>
 
-<h3 id="power_the_devices">Power the Devices</h3>
+<h3 id='power_the_devices'>Power the Devices</h3>
 
 <ul>
 <li>We used USB power hubs</li>
@@ -80,7 +80,7 @@ sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class
 <li>According to docs, each pi needs around 500-1000 mA, 5V</li>
 </ul>
 
-<h2 id="select_a_headnode">Select a headnode</h2>
+<h2 id='select_a_headnode'>Select a headnode</h2>
 
 <ul>
 <li>Connect keyboard, mouse, display</li>
@@ -89,7 +89,7 @@ sudo dd <span class='k'>if</span><span class='o'>=</span>/dev/rdisk1 <span class
 </ul>
 <div class='highlight'><pre><code class='bash'>startx
 </code></pre></div>
-<h2 id="run_mpi">Run MPI</h2>
+<h2 id='run_mpi'>Run MPI</h2>
 <div class='highlight'><pre><code class='bash'>mpiexec --machinfile ~/machinefile -n 4 python hellompi.py
 </code></pre></div>
       </section>
