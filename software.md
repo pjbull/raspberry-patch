@@ -22,6 +22,8 @@ sudo apt-get install python-mpi4py
 On our cluster, MPI is configured to use SSH as its protocol to pass messages between nodes.
 - Use the same keys
 - Disable some authentication safeguards (this is ok since we are not on the internet)
+- Assign each node a static IP address
+- Add all IP's to a machinefile (we actually call our file `machinefile`)
 
 ## XHPL
 In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we download and install [linpack](http://www.netlib.org/benchmark/hpl/) by following the instructions at the bottom of [this page](http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458).
