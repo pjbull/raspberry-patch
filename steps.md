@@ -20,7 +20,7 @@ sudo dd of=/dev/rdisk1 if=~/rpi_mpi.img bs=1m
 {% highlight bash %}
 startx
 {% endhighlight %}
-- On the master node, install the necessary [software]({{ site.baseurl }}/software.html)
+- On the master node, install the necessary [software]({{ site.baseurl }}/software.html). Here is our final [image](http://people.seas.harvard.edu/~bull/rpi_mpi_8.img.zip).
 - Next, you want to copy this image to the other SD cards
 
 {% highlight bash %}
