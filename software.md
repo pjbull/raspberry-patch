@@ -24,9 +24,9 @@ On our cluster, MPI is configured to use SSH as its protocol to pass messages be
 - Disable some authentication safeguards (this is ok since we are not on the internet)
 
 ## XHPL
-In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/).
+In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed [linpack](http://www.netlib.org/benchmark/hpl/) by following the instructions at the bottom of [this](http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458) page.
 
-To install linpack we do the following:
+In a nutshell, we do the following:
 {% highlight bash %}
 sudo apt-get install openmpi-dev libatlas-base-dev gfortran
 
@@ -37,7 +37,7 @@ cd ..
 cp setup/Make.UNKNOWN Make.rpi
 {% endhighlight %}
 
-Then we made the following changes to Make.rpi:
+Then we make the following changes to Make.rpi:
 
 {% highlight  bash %}
 ARCH         = rpi
@@ -46,3 +46,11 @@ MPlib        = -lmpi
 LAdir        = /usr/lib/atlas-base/
 LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
 {% endhighlight %}
+
+Then we compile linpack:
+{% highlight  bash %}
+make arch=rpi
+{% endhighlight %}
+
+Before running, it is important to adjust the parameters in /bin/rpi/HPL.dat.
+Here are the values we settled on:
