@@ -39,9 +39,10 @@ cp setup/Make.UNKNOWN Make.rpi
 
 Then we made the following changes to Make.rpi:
 
-
+{% highlight %}
 ARCH         = rpi
 TOPdir       = $(HOME)/hpl-2.1
 MPlib        = -lmpi
 LAdir        = /usr/lib/atlas-base/
 LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
+{% endhighlight %}
