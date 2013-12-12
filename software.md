@@ -53,4 +53,9 @@ make arch=rpi
 {% endhighlight %}
 
 Before running, it is important to adjust the parameters in /bin/rpi/HPL.dat.
-Here are the values we settled on:
+Here are the values we settled on: [HPL.dat](https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat).
+
+Finally, we run the following:
+{% highlight  bash %}
+mpiexec -machinefile machinefile -n 16 xhpl
+{% endhighlight %}
