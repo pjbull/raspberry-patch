@@ -4,7 +4,6 @@ layout: default
 ---
 
 ## Electronics
-- Hi Ben
 - Raspberry Pi
 - DLink Switch
 - SD Cards (class 10, etc.)
@@ -21,10 +20,3 @@ layout: default
 
 ## Power
 - USB Power Hubs
-
-{% highlight python %}
-def i_am_code():
-	return 1000
-{% endhighlight %}
-
-[test](url)
