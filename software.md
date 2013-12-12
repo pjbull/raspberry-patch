@@ -39,7 +39,7 @@ cp setup/Make.UNKNOWN Make.rpi
 
 Then we make the following changes to Make.rpi:
 
-{% highlight  bash %}
+{% highlight  html %}
 ARCH         = rpi
 TOPdir       = $(HOME)/hpl-2.1
 MPlib        = -lmpi
