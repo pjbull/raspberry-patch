@@ -20,12 +20,12 @@
 
           <h1 id="project_title">Raspberry Patch</h1>
           <h2 id="project_tagline">building a cluster of raspberry pis</h2>
-          <img id="forkme_banner" src="/raspberry-patch/images/g.png"/>
-          	<a class="button" href="/raspberry-patch/index.html">background</a>
-          	<a class="button" href="/raspberry-patch/software.html">software</a>
-          	<a class="button" href="/raspberry-patch/hardware.html">hardware</a>
-          	<a class="button" href="/raspberry-patch/steps.html">step-by-step</a>
-          	<a class="button" href="/raspberry-patch/perf.html">performance</a>
+          <img id="forkme_banner" src="true/images/g.png"/>
+          	<a class="button" href="true/index.html">background</a>
+          	<a class="button" href="true/software.html">software</a>
+          	<a class="button" href="true/hardware.html">hardware</a>
+          	<a class="button" href="true/steps.html">step-by-step</a>
+          	<a class="button" href="true/perf.html">performance</a>
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/pjbull/raspberry-bush/zipball/master">Download this project as a .zip file</a>
               <a class="tar_download_link" href="https://github.com/pjbull/raspberry-bush/tarball/master">Download this project as a tar.gz file</a>
@@ -63,11 +63,40 @@
 <li>Use the same keys</li>
 
 <li>Disable some authentication safeguards (this is ok since we are not on the internet)</li>
+
+<li>Assign each node a static IP address</li>
+
+<li>Add all IP’s to a machinefile (we actually call our file <code>machinefile</code>)</li>
 </ul>
 
 <h2 id="xhpl">XHPL</h2>
 
-<p>In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we downloaded and installed <a href="http://www.netlib.org/benchmark/hpl/hpl-2.1.tar.gz">linpack</a>.</p>
+<p>In order to clock the performance of our cluster in such a way that it can be compared to other clusters, we download and install <a href="http://www.netlib.org/benchmark/hpl/">linpack</a> by following the instructions at the bottom of <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=33186&p=301458">this page</a>.</p>
+
+<p>In a nutshell, we do the following:</p>
+<div class='highlight'><pre><code class='bash'>sudo apt-get install openmpi-dev libatlas-base-dev gfortran
+
+tar xf hpl-2.1.tar.gz
+<span class='nb'>cd </span>hpl-2.1/setup
+sh make_generic
+<span class='nb'>cd</span> ..
+cp setup/Make.UNKNOWN Make.rpi
+</code></pre></div>
+<p>Next, we make the following changes to Make.rpi:</p>
+<div class='highlight'><pre><code class='html'>ARCH         = rpi
+TOPdir       = $(HOME)/hpl-2.1
+MPlib        = -lmpi
+LAdir        = /usr/lib/atlas-base/
+LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
+</code></pre></div>
+<p>Then we compile linpack:</p>
+<div class='highlight'><pre><code class='bash'>make <span class='nv'>arch</span><span class='o'>=</span>rpi
+</code></pre></div>
+<p>Before running, it is important to adjust the parameters in hpl-2.1/bin/rpi/HPL.dat. Here are the values we settled on: <a href="https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat">HPL.dat</a>.</p>
+
+<p>Finally, we test our supercomputer:</p>
+<div class='highlight'><pre><code class='bash'>mpiexec -machinefile machinefile -n 16 xhpl
+</code></pre></div>
       </section>
     </div>
 
