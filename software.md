@@ -52,7 +52,7 @@ Then we compile linpack:
 make arch=rpi
 {% endhighlight %}
 
-Before running, it is important to adjust the parameters in /bin/rpi/HPL.dat.
+Before running, it is important to adjust the parameters in hpl-2.1/bin/rpi/HPL.dat.
 Here are the values we settled on: [HPL.dat](https://github.com/pjbull/raspberry-patch/blob/master/HPL.dat).
 
 Finally, we test our supercomputer:
