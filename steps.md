@@ -3,14 +3,27 @@ title: Step-by-step
 layout: default
 ---
 
-## Image the SD Cards
-- Create a master image (link to ours)
-- Image all the sd cards using dd
+## Image the SD cards
+- Donwload the [Raspbian OS](http://www.raspberrypi.org/downloads)
+- Insert an SD card into your card reader.
+- Create a master image. On OS X you can use the following:
 
 {% highlight bash %}
 # find sd card
 diskutil list
 
+sudo dd of=/dev/rdisk1 if=~/rpi_mpi.img bs=1m
+{% endhighlight %}
+
+- Connect keyboard, mouse, display
+- if you need gui (e.g., gtk for matplotlib output) run
+{% highlight bash %}
+startx
+{% endhighlight %}
+- On the master node, install the necessary [software]({{ site.baseurl }}/software.html)
+- Next, you want to copy this image to the other SD cards
+
+{% highlight bash %}
 # copy master image locally note change disk1 -> rdisk1
 sudo dd if=/dev/rdisk1 of=~/rpi_mpi.img bs=1m
 {% endhighlight %}
@@ -19,10 +32,10 @@ sudo dd if=/dev/rdisk1 of=~/rpi_mpi.img bs=1m
 
 {% highlight bash %}
 # update image using script
-python setup_node.py rpi_mpi.img 1
+python setup_node.py rpi_mpi.img 1 #Here, 1 is an ID for the node
 
 # copy master image locally note change disk1 -> rdisk1
-sudo dd if=/dev/rdisk1 of=~/rpi_mpi.img bs=1m
+sudo dd of=/dev/rdisk1 if=~/rpi_mpi.img bs=1m
 {% endhighlight %}
 
 ## Create the Hardware Connections
@@ -34,13 +47,6 @@ sudo dd if=/dev/rdisk1 of=~/rpi_mpi.img bs=1m
 ### Power the Devices
 - We used USB power hubs
 - According to docs, each pi needs around 500-1000 mA, 5V
-
-## Select a headnode
-- Connect keyboard, mouse, display
-- if you need gui (e.g., gtk for matplotlib output) run
-{% highlight bash %}
-startx
-{% endhighlight %}
 
 ## Run MPI
 {% highlight bash %}
